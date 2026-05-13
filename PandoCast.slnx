@@ -5,6 +5,9 @@
     <File Path="ARCHITECTURE.md" />
     <File Path="CREDITS.md" />
     <File Path="LICENSE.txt" />
+    <File Path="PandoCast_FlyoutPanel.png" />
+    <File Path="PandoCast_Logo.png" />
+    <File Path="PandoCast_Settings.png" />
     <File Path="README.md" />
   </Folder>
   <Project Path="PandoCast.Core/PandoCast.Core.csproj" />

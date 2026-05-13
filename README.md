@@ -1,3 +1,7 @@
+<p align="left">
+  <img src="PandoCast_Logo.png" alt="PandoCast" width="100"/>
+</p>
+
 # PandoCast
 
 Unofficial Windows tray app for casting Pandora stations to Chromecast-compatible speakers.
@@ -24,7 +28,9 @@ Pandora does not provide neither a native casting feature in their web player, n
 
 ## Screenshots
 
-- TODO
+<p align="left">
+  <img src="PandoCast_FlyoutPanel.png" alt="PandoCast Flyout Panel"/> <img src="PandoCast_Settings.png" alt="PandoCast Settings"/>
+</p>
 
 ## Download
 
