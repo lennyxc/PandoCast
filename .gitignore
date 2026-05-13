@@ -1,0 +1,49 @@
+# Build outputs
+bin/
+obj/
+artifacts/
+TestResults/
+
+# Visual Studio / IDE state
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+.idea/
+
+# .NET / NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs and diagnostics
+*.log
+*.tlog
+*.binlog
+
+# Publish / deployment outputs
+publish/
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+
+# Local environment / secrets
+.env
+.env.*
+*.pfx
+*.p12
+*.key
+*.pem
+credentials.dat
+receiver.txt
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store

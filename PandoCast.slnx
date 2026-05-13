@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path="ARCHITECTURE.md" />
+    <File Path="CREDITS.md" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="PandoCast.Core/PandoCast.Core.csproj" />
+  <Project Path="PandoCast.PandoraProbe/PandoCast.PandoraProbe.csproj" />
+  <Project Path="PandoCast.UI/PandoCast.UI.csproj" />
+</Solution>
