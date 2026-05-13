@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="PandoCast_Logo.png" alt="PandoCast" width="100"/>
+  <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_Logo.png" alt="PandoCast" width="100"/>
 </p>
 
 # PandoCast
@@ -29,7 +29,7 @@ Pandora does not provide neither a native casting feature in their web player, n
 ## Screenshots
 
 <p align="left">
-  <img src="PandoCast_FlyoutPanel.png" alt="PandoCast Flyout Panel"/> <img src="PandoCast_Settings.png" alt="PandoCast Settings"/>
+  <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_FlyoutPanel.png" alt="PandoCast Flyout Panel"/> <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_Settings.png" alt="PandoCast Settings"/>
 </p>
 
 ## Download
