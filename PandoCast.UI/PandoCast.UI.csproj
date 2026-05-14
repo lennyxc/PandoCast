@@ -6,6 +6,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+
+    <AssemblyName>PandoCast</AssemblyName>
+    <RootNamespace>PandoCast.UI</RootNamespace>
+    <ApplicationIcon>PandoCast_Logo.ico</ApplicationIcon>
+
+    <Product>PandoCast</Product>
+    <AssemblyTitle>PandoCast</AssemblyTitle>
+    <Description>PandoCast</Description>
+    <Company>PandoCast</Company>
+
   </PropertyGroup>
 
   <ItemGroup>
