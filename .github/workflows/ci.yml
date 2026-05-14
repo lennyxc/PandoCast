@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     name: Build
-    runs-on: windows-latest
+    runs-on: windows-2025-vs2026
 
     steps:
       - name: Checkout
@@ -31,6 +31,8 @@ jobs:
       - name: Publish smoke check
         shell: pwsh
         run: |
+          $publishDir = Join-Path $env:GITHUB_WORKSPACE "artifacts\ci-publish"
+
           dotnet publish .\PandoCast.UI\PandoCast.UI.csproj `
             -c Release `
             -r win-x64 `
@@ -38,4 +40,4 @@ jobs:
             /p:PublishSingleFile=true `
             /p:EnableCompressionInSingleFile=true `
             /p:IncludeNativeLibrariesForSelfExtract=true `
-            /p:PublishDir=.\artifacts\ci-publish\
+            -o $publishDir

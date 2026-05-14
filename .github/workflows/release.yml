@@ -11,7 +11,7 @@ permissions:
 jobs:
   release:
     name: Build and release
-    runs-on: windows-latest
+    runs-on: windows-2025-vs2026
 
     steps:
       - name: Checkout
@@ -28,14 +28,17 @@ jobs:
           $tag = "${{ github.ref_name }}"
 
           if ($tag -notmatch '^v(?<version>\d+\.\d+\.\d+)$') {
-            throw "Release tags must match vMAJOR.MINOR.PATCH, for example v0.1.0. Current tag: $tag"
+            throw "Release tags must match vMAJOR.MINOR.PATCH, for example v1.0.0. Current tag: $tag"
           }
 
           $version = $Matches.version
           $fileVersion = "$version.0"
 
-          New-Item -ItemType Directory -Force -Path .\artifacts\publish | Out-Null
-          New-Item -ItemType Directory -Force -Path .\artifacts\release | Out-Null
+          $publishDir = Join-Path $env:GITHUB_WORKSPACE "artifacts\publish"
+          $releaseDir = Join-Path $env:GITHUB_WORKSPACE "artifacts\release"
+
+          New-Item -ItemType Directory -Force -Path $publishDir | Out-Null
+          New-Item -ItemType Directory -Force -Path $releaseDir | Out-Null
 
           dotnet publish .\PandoCast.UI\PandoCast.UI.csproj `
             -c Release `
@@ -48,11 +51,17 @@ jobs:
             /p:FileVersion=$fileVersion `
             /p:AssemblyVersion=$fileVersion `
             /p:InformationalVersion=$tag `
-            /p:PublishDir=.\artifacts\publish\
+            -o $publishDir
 
-          Copy-Item `
-            .\artifacts\publish\PandoCast.UI.exe `
-            ".\artifacts\release\PandoCast-$tag-win-x64.exe"
+          $publishedExe = Join-Path $publishDir "PandoCast.UI.exe"
+          $releaseExe = Join-Path $releaseDir "PandoCast-$tag-win-x64.exe"
+
+          if (!(Test-Path $publishedExe)) {
+            Get-ChildItem $publishDir
+            throw "Published executable not found: $publishedExe"
+          }
+
+          Copy-Item $publishedExe $releaseExe
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
