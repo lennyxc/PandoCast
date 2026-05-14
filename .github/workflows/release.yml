@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and release
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Publish app
+        shell: pwsh
+        run: |
+          $tag = "${{ github.ref_name }}"
+
+          if ($tag -notmatch '^v(?<version>\d+\.\d+\.\d+)$') {
+            throw "Release tags must match vMAJOR.MINOR.PATCH, for example v0.1.0. Current tag: $tag"
+          }
+
+          $version = $Matches.version
+          $fileVersion = "$version.0"
+
+          New-Item -ItemType Directory -Force -Path .\artifacts\publish | Out-Null
+          New-Item -ItemType Directory -Force -Path .\artifacts\release | Out-Null
+
+          dotnet publish .\PandoCast.UI\PandoCast.UI.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained true `
+            /p:PublishSingleFile=true `
+            /p:EnableCompressionInSingleFile=true `
+            /p:IncludeNativeLibrariesForSelfExtract=true `
+            /p:AssemblyName=PandoCast `
+            /p:Version=$version `
+            /p:FileVersion=$fileVersion `
+            /p:AssemblyVersion=$fileVersion `
+            /p:InformationalVersion=$tag `
+            /p:PublishDir=.\artifacts\publish\
+
+          Copy-Item `
+            .\artifacts\publish\PandoCast.exe `
+            ".\artifacts\release\PandoCast-$tag-win-x64.exe"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/release/PandoCast-${{ github.ref_name }}-win-x64.exe
+          generate_release_notes: true

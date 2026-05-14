@@ -29,7 +29,7 @@ Pandora does not provide neither a native casting feature in their web player, n
 ## Screenshots
 
 <p align="left">
-  <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_FlyoutPanel1.png" alt="PandoCast Flyout Panel"/> <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_Settings1.png" alt="PandoCast Settings"/>
+  <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_FlyoutPanel1.png width="500" alt="PandoCast Flyout Panel"/> <img src="https://raw.githubusercontent.com/lennyxc/PandoCast/main/PandoCast_Settings1.png" width="300" alt="PandoCast Settings"/>
 </p>
 
 ## Download
