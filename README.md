@@ -75,6 +75,12 @@ PandoCast stores your Pandora credentials locally using Windows DPAPI under your
 1. dotnet restore
 2. dotnet build
 
+## Acknowledgements
+
+This is built off [https://6xq.net/pandora-apidoc/](https://6xq.net/pandora-apidoc/) and the community who have helped in this research.
+
+PandoCast is not affiliated with or endorsed by Pandora.
+
 ## Contributing
 
 PRs welcome. Please open an issue first for larger changes.
