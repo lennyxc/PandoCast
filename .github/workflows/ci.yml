@@ -29,6 +29,7 @@ jobs:
         run: dotnet build .\PandoCast.slnx --configuration Release --no-restore
 
       - name: Publish smoke check
+        shell: pwsh
         run: |
           dotnet publish .\PandoCast.UI\PandoCast.UI.csproj `
             -c Release `
@@ -37,5 +38,4 @@ jobs:
             /p:PublishSingleFile=true `
             /p:EnableCompressionInSingleFile=true `
             /p:IncludeNativeLibrariesForSelfExtract=true `
-            /p:AssemblyName=PandoCast `
             /p:PublishDir=.\artifacts\ci-publish\

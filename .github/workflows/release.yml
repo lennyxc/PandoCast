@@ -44,7 +44,6 @@ jobs:
             /p:PublishSingleFile=true `
             /p:EnableCompressionInSingleFile=true `
             /p:IncludeNativeLibrariesForSelfExtract=true `
-            /p:AssemblyName=PandoCast `
             /p:Version=$version `
             /p:FileVersion=$fileVersion `
             /p:AssemblyVersion=$fileVersion `
@@ -52,7 +51,7 @@ jobs:
             /p:PublishDir=.\artifacts\publish\
 
           Copy-Item `
-            .\artifacts\publish\PandoCast.exe `
+            .\artifacts\publish\PandoCast.UI.exe `
             ".\artifacts\release\PandoCast-$tag-win-x64.exe"
 
       - name: Create GitHub Release
