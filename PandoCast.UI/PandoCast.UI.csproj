@@ -10,6 +10,7 @@
     <AssemblyName>PandoCast</AssemblyName>
     <RootNamespace>PandoCast.UI</RootNamespace>
     <ApplicationIcon>PandoCast_Logo.ico</ApplicationIcon>
+    <Win32Icon>PandoCast_Logo.ico</Win32Icon>
 
     <Product>PandoCast</Product>
     <AssemblyTitle>PandoCast</AssemblyTitle>
